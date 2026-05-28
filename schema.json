@@ -45,6 +45,8 @@
         "gpu_cores": { "type": "integer" },
         "neural_engine_cores": { "type": "integer" },
         "ram_gb": { "type": "number" },
+        "memory_bandwidth_gbps": { "type": "number" },
+        "weight_g": { "type": "number" },
         "storage_gb": { "type": "array", "items": { "type": "number" } },
         "display": {
           "type": "object",

@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schema.json",
+  "supplier": "Apple",
+  "model": "iPad Air 13-inch (M4)",
+  "model_ids": [],
+  "os": "ipados",
+  "os_min": "26",
+  "os_max": "current",
+  "released": "2026-03-11",
+  "status": "current",
+  "form_factor": "tablet",
+  "tags": ["m4", "apple-pencil-pro", "wifi-7", "bluetooth-6", "esim-only"],
+  "verified": true,
+  "sources": [
+    "https://www.apple.com/newsroom/2026/03/apple-introduces-the-new-ipad-air-powered-by-m4/",
+    "https://support.apple.com/en-us/126472"
+  ],
+  "hardware": {
+    "chip": "Apple M4",
+    "cpu_cores": 8,
+    "gpu_cores": 9,
+    "neural_engine_cores": 16,
+    "ram_gb": 12,
+    "memory_bandwidth_gbps": 120,
+    "storage_gb": [128, 256, 512, 1024],
+    "display": {
+      "size_in": 13,
+      "resolution": "2732x2048",
+      "ppi": 264,
+      "panel": "LED-backlit IPS, fully laminated, antireflective, P3 wide color, True Tone",
+      "refresh_hz_min": 60,
+      "refresh_hz_max": 60,
+      "brightness_nits_typ": 600
+    },
+    "battery": {
+      "capacity_wh": 36.59
+    }
+  },
+  "cameras": {
+    "rear": [
+      { "type": "wide", "megapixels": 12, "aperture": "f/1.8", "notes": "5x digital zoom, five-element lens" }
+    ],
+    "front": [
+      { "type": "ultra-wide", "megapixels": 12, "aperture": "f/2.0", "notes": "landscape orientation, Center Stage" }
+    ],
+    "features": ["Smart HDR 4", "Center Stage", "4K video"]
+  },
+  "connectivity": {
+    "cellular": ["5G sub-6 (cellular models, 4x4 MIMO)", "LTE"],
+    "wifi": "Wi-Fi 7 (802.11be) 2x2 MIMO",
+    "bluetooth": "6",
+    "nfc": false,
+    "uwb": false,
+    "port": "USB-C (USB 3, DisplayPort)",
+    "usb_speed_gbps": 10,
+    "gnss": ["GPS", "GLONASS", "Galileo", "QZSS", "BeiDou", "NavIC"]
+  },
+  "biometrics": ["touch-id"],
+  "sensors": ["accelerometer", "gyroscope", "ambient-light", "barometer", "digital-compass"],
+  "durability": {
+    "frame": "100% recycled aluminum"
+  },
+  "sim": {
+    "physical": false,
+    "esim": true,
+    "dual_esim": true,
+    "notes": "eSIM only on cellular models; not compatible with physical SIM cards."
+  },
+  "accessories": ["Apple Pencil Pro", "Apple Pencil (USB-C)", "Magic Keyboard for iPad Air", "Smart Folio", "Smart Connector"],
+  "notes": "Apple N1 wireless and C1X cellular silicon. Battery rated up to 10h Wi-Fi web/video. Starts at $799. Announced 2026-03-02, available 2026-03-11."
+}
