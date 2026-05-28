@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://etiamo.com/schemas/capability-card.json",
+  "title": "Mobile Capability Card",
+  "description": "Describes the hardware and software capabilities of a single mobile device.",
+  "type": "object",
+  "required": ["supplier", "model", "os", "form_factor"],
+  "additionalProperties": false,
+  "properties": {
+    "supplier": { "type": "string", "description": "Vendor/OEM, e.g. Apple, Samsung, Google." },
+    "model": { "type": "string", "description": "Marketing name, e.g. iPhone 13 Pro." },
+    "model_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Internal/regional model identifiers."
+    },
+    "os": {
+      "type": "string",
+      "enum": ["ios", "ipados", "android", "watchos", "wearos", "harmonyos", "other"]
+    },
+    "os_min": { "type": "string", "description": "Minimum supported OS version." },
+    "os_max": { "type": "string", "description": "Maximum supported OS version, or 'current'." },
+    "released": { "type": "string", "format": "date" },
+    "status": { "type": "string", "enum": ["current", "supported", "legacy", "eol"] },
+    "form_factor": {
+      "type": "string",
+      "enum": ["phone", "tablet", "foldable", "wearable", "laptop", "other"]
+    },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "verified": {
+      "type": "boolean",
+      "description": "True if every field has been confirmed against an authoritative source."
+    },
+    "sources": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" },
+      "description": "URLs of authoritative references."
+    },
+    "hardware": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "chip": { "type": "string" },
+        "cpu_cores": { "type": "integer" },
+        "gpu_cores": { "type": "integer" },
+        "neural_engine_cores": { "type": "integer" },
+        "ram_gb": { "type": "number" },
+        "storage_gb": { "type": "array", "items": { "type": "number" } },
+        "display": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "size_in": { "type": "number" },
+            "resolution": { "type": "string" },
+            "ppi": { "type": "integer" },
+            "panel": { "type": "string" },
+            "refresh_hz_min": { "type": "integer" },
+            "refresh_hz_max": { "type": "integer" },
+            "hdr": { "type": "array", "items": { "type": "string" } },
+            "brightness_nits_typ": { "type": "integer" },
+            "brightness_nits_hdr": { "type": "integer" },
+            "brightness_nits_peak": { "type": "integer" }
+          }
+        },
+        "battery": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "capacity_mah": { "type": "integer" },
+            "capacity_wh": { "type": "number" },
+            "wired_w": { "type": "number" },
+            "wireless_w": { "type": "number" },
+            "magsafe_w": { "type": "number" }
+          }
+        }
+      }
+    },
+    "cameras": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rear": { "type": "array", "items": { "$ref": "#/$defs/camera" } },
+        "front": { "type": "array", "items": { "$ref": "#/$defs/camera" } },
+        "features": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "connectivity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cellular": { "type": "array", "items": { "type": "string" } },
+        "wifi": { "type": "string" },
+        "bluetooth": { "type": "string" },
+        "nfc": { "type": "boolean" },
+        "uwb": { "type": "boolean" },
+        "thread": { "type": "boolean" },
+        "port": { "type": "string" },
+        "usb_speed_gbps": { "type": "number" },
+        "gnss": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "biometrics": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["face-id", "touch-id", "fingerprint", "iris", "voice"] }
+    },
+    "sensors": { "type": "array", "items": { "type": "string" } },
+    "durability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ip_rating": { "type": "string" },
+        "frame": { "type": "string" },
+        "front_glass": { "type": "string" },
+        "back": { "type": "string" }
+      }
+    },
+    "sim": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "physical": { "type": "boolean" },
+        "esim": { "type": "boolean" },
+        "dual_esim": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "accessories": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "string" }
+  },
+  "$defs": {
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "megapixels"],
+      "properties": {
+        "type": { "type": "string", "description": "wide | ultra-wide | telephoto | trueDepth | lidar" },
+        "megapixels": { "type": "number" },
+        "aperture": { "type": "string" },
+        "ois": { "type": "boolean" },
+        "optical_zoom": { "type": "number" },
+        "fov_deg": { "type": "integer" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schema.json",
+  "supplier": "Apple",
+  "model": "iPhone 13 Pro",
+  "model_ids": ["A2483", "A2636", "A2638", "A2639", "A2640"],
+  "os": "ios",
+  "os_min": "15.0",
+  "os_max": "18",
+  "released": "2021-09-24",
+  "status": "legacy",
+  "form_factor": "phone",
+  "tags": ["promotion", "face-id", "magsafe", "lightning", "5g"],
+  "verified": true,
+  "sources": [
+    "https://support.apple.com/en-us/111872",
+    "https://www.apple.com/newsroom/2021/09/apple-unveils-iphone-13-pro-and-iphone-13-pro-max-more-pro-than-ever-before/"
+  ],
+  "hardware": {
+    "chip": "Apple A15 Bionic",
+    "cpu_cores": 6,
+    "gpu_cores": 5,
+    "neural_engine_cores": 16,
+    "ram_gb": 6,
+    "storage_gb": [128, 256, 512, 1024],
+    "display": {
+      "size_in": 6.1,
+      "resolution": "2532x1170",
+      "ppi": 460,
+      "panel": "Super Retina XDR OLED",
+      "refresh_hz_min": 10,
+      "refresh_hz_max": 120,
+      "hdr": ["HDR10", "Dolby Vision"],
+      "brightness_nits_typ": 1000,
+      "brightness_nits_hdr": 1200
+    },
+    "battery": {
+      "capacity_mah": 3095,
+      "wired_w": 20,
+      "magsafe_w": 15,
+      "wireless_w": 7.5
+    }
+  },
+  "cameras": {
+    "rear": [
+      { "type": "wide", "megapixels": 12, "aperture": "f/1.5", "ois": true },
+      { "type": "ultra-wide", "megapixels": 12, "aperture": "f/1.8", "fov_deg": 120, "notes": "macro to 2 cm" },
+      { "type": "telephoto", "megapixels": 12, "aperture": "f/2.8", "ois": true, "optical_zoom": 3 },
+      { "type": "lidar", "megapixels": 0 }
+    ],
+    "front": [
+      { "type": "trueDepth", "megapixels": 12, "aperture": "f/2.2" }
+    ],
+    "features": ["ProRAW", "ProRes", "Cinematic mode", "4K60 Dolby Vision HDR", "Night mode", "Photographic Styles"]
+  },
+  "connectivity": {
+    "cellular": ["5G sub-6", "5G mmWave (US only)", "LTE"],
+    "wifi": "Wi-Fi 6 (802.11ax) 2x2 MIMO",
+    "bluetooth": "5.0",
+    "nfc": true,
+    "uwb": true,
+    "port": "Lightning",
+    "usb_speed_gbps": 0.48,
+    "gnss": ["GPS", "GLONASS", "Galileo", "QZSS", "BeiDou"]
+  },
+  "biometrics": ["face-id"],
+  "sensors": ["accelerometer", "gyroscope", "proximity", "ambient-light", "barometer", "lidar"],
+  "durability": {
+    "ip_rating": "IP68 (6 m / 30 min)",
+    "frame": "Surgical-grade stainless steel",
+    "front_glass": "Ceramic Shield"
+  },
+  "sim": {
+    "physical": true,
+    "esim": true,
+    "dual_esim": true,
+    "notes": "nano-SIM + eSIM, or dual eSIM in some regions"
+  },
+  "accessories": ["MagSafe", "Apple U1"],
+  "notes": "Final Pro line before USB-C (iPhone 15 Pro) and titanium frame. iOS 19 support uncertain."
+}
