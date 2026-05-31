@@ -61,7 +61,8 @@
             "hdr": { "type": "array", "items": { "type": "string" } },
             "brightness_nits_typ": { "type": "integer" },
             "brightness_nits_hdr": { "type": "integer" },
-            "brightness_nits_peak": { "type": "integer" }
+            "brightness_nits_peak": { "type": "integer" },
+            "screen": { "$ref": "#/$defs/screen" }
           }
         },
         "battery": {
@@ -130,6 +131,56 @@
     "notes": { "type": "string" }
   },
   "$defs": {
+    "screen": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Screen-emulation geometry: everything an on-screen device mockup needs to reproduce the display faithfully (logical points, DPR, corner radius, safe-area insets, and any camera/sensor cutout). Distinct from the physical `resolution`/`ppi`/`size_in` above: those describe the panel, this describes how a UI lays out on it. All lengths are in logical points (CSS px), measured in the device's natural PORTRAIT orientation.",
+      "properties": {
+        "points": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Logical resolution in points (CSS px), portrait: short edge x long edge.",
+          "required": ["short", "long"],
+          "properties": {
+            "short": { "type": "number" },
+            "long": { "type": "number" }
+          }
+        },
+        "scale": {
+          "type": "number",
+          "description": "Device pixel ratio (physical pixels per point). e.g. 3 for @3x iPhones, 2 for @2x iPhones and iPads."
+        },
+        "corner_radius_pt": {
+          "type": "number",
+          "description": "Display corner radius in points (0 for square-cornered panels)."
+        },
+        "safe_area_pt": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Safe-area insets in points for portrait orientation (status bar / cutout at top, home indicator at bottom). A renderer rotates these for landscape.",
+          "properties": {
+            "top": { "type": "number" },
+            "right": { "type": "number" },
+            "bottom": { "type": "number" },
+            "left": { "type": "number" }
+          }
+        },
+        "cutout": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Camera/sensor intrusion into the display. `none` for a full rectangle. Geometry is for portrait, centred on the top edge unless `center_x_pt` is given.",
+          "required": ["type"],
+          "properties": {
+            "type": { "type": "string", "enum": ["none", "notch", "dynamic-island", "punch-hole"] },
+            "width_pt": { "type": "number" },
+            "height_pt": { "type": "number" },
+            "top_pt": { "type": "number", "description": "Gap from the top of the display to the top of the cutout (0 for a notch that meets the bezel; >0 for a floating pill / punch-hole)." },
+            "radius_pt": { "type": "number", "description": "Corner radius of the cutout." },
+            "center_x_pt": { "type": "number", "description": "Horizontal centre of the cutout from the left edge. Omitted = horizontally centred." }
+          }
+        }
+      }
+    },
     "camera": {
       "type": "object",
       "additionalProperties": false,

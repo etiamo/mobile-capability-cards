@@ -31,7 +31,14 @@
       "refresh_hz_max": 120,
       "hdr": ["HDR10", "Dolby Vision"],
       "brightness_nits_typ": 1000,
-      "brightness_nits_hdr": 1200
+      "brightness_nits_hdr": 1200,
+      "screen": {
+        "points": { "short": 390, "long": 844 },
+        "scale": 3,
+        "corner_radius_pt": 47,
+        "safe_area_pt": { "top": 47, "right": 0, "bottom": 34, "left": 0 },
+        "cutout": { "type": "notch", "width_pt": 209, "height_pt": 30, "top_pt": 0, "radius_pt": 20 }
+      }
     },
     "battery": {
       "capacity_mah": 3095,

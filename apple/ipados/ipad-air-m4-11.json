@@ -31,7 +31,14 @@
       "panel": "LED-backlit IPS, fully laminated, antireflective, P3 wide color, True Tone",
       "refresh_hz_min": 60,
       "refresh_hz_max": 60,
-      "brightness_nits_typ": 500
+      "brightness_nits_typ": 500,
+      "screen": {
+        "points": { "short": 820, "long": 1180 },
+        "scale": 2,
+        "corner_radius_pt": 18,
+        "safe_area_pt": { "top": 24, "right": 0, "bottom": 20, "left": 0 },
+        "cutout": { "type": "none" }
+      }
     },
     "battery": {
       "capacity_wh": 28.93
